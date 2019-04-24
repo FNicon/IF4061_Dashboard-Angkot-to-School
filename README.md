@@ -14,6 +14,12 @@ Interactive Visualization of program "Angkot to School" by Bandung's Government.
 8. Filter jenis sekolah
 9. 5 Ter (untuk prioritas) mungkin statis.
 
-## How to Run
+## How to Run Locally
 
-python -m flask run
+python app.py
+
+[local dashboard angkot to school](http://127.0.0.1:5000/)
+
+## Heroku Links
+
+[dashboard angkot to school](http://dashboard-angkot-to-school.herokuapp.com/)
