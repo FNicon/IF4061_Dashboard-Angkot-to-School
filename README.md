@@ -13,3 +13,7 @@ Interactive Visualization of program "Angkot to School" by Bandung's Government.
 7. Filter jenis angkot
 8. Filter jenis sekolah
 9. 5 Ter (untuk prioritas) mungkin statis.
+
+## How to Run
+
+python -m flask run
