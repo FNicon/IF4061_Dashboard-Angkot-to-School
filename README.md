@@ -23,3 +23,19 @@ python app.py
 ## Heroku Links
 
 [dashboard angkot to school](http://dashboard-angkot-to-school.herokuapp.com/)
+
+## Tutorials
+
+[flask](http://flask.pocoo.org/docs/1.0/)
+[jinja](http://jinja.pocoo.org/docs/2.10/templates/)
+[psycopg2](http://initd.org/psycopg/docs/)
+[python](https://www.python.org/dev/peps/pep-0008/#naming-conventions)
+[r](https://www.r-project.org/other-docs.html)
+[r](https://cran.r-project.org/manuals.html)
+[r spatial](https://www.rspatial.org/intr/1-introduction.html#)
+
+## Kelompok FOE & Friends
+
+1. 13515015 - Ega Rifqi Saputra
+2. 13515029 - Finiko Kasula Novenda
+3. 1351535 - Oktavianus Handika
