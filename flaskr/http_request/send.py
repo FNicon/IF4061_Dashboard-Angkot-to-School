@@ -3,7 +3,7 @@ import sys
 import time
 import urllib.request
 
-from utils.log.log import ErrorLog, InfoLog
+from flaskr.log.log import ErrorLog, InfoLog
 
 module_name = "utils.log.log.py"
 

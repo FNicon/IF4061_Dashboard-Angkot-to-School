@@ -4,16 +4,17 @@ import sys
 from os import environ
 
 from flask import Flask
+from flask import render_template
 
-from utils.http_request.send import SendHTTPRequest
-from utils.log.log import ErrorLog, InfoLog
+from flaskr.http_request.send import SendHTTPRequest
+from flaskr.log.log import ErrorLog, InfoLog
 
 module_name = "app.py"
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
-	return "Hello World!"
+def index():
+	return render_template('index.html')
 
 if __name__ == '__main__':
 	try:
