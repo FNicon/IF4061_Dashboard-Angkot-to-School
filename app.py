@@ -6,10 +6,10 @@ from os import environ
 from flask import Flask
 from flask import render_template
 
-from flaskr.http_request.send import SendHTTPRequest
-from flaskr.log.log import ErrorLog, InfoLog
+from flaskr.http_request.send import send_http_request
+from flaskr.log.log import error_log, info_log
 
-module_name = "app.py"
+module_name = "app"
 app = Flask(__name__)
 
 @app.route("/")
@@ -18,14 +18,14 @@ def index():
 
 if __name__ == '__main__':
 	try:
-		InfoLog(module_name, "START SERVER")
-		multi_process = mp.Process(target=SendHTTPRequest)
+		info_log(module_name, "START SERVER")
+		multi_process = mp.Process(target=send_http_request)
 		multi_process.start()
 		app.run(host='0.0.0.0',debug=False, port=environ.get("PORT", 5000))
 		multi_process.join()
 	except Exception as e :
 		multi_process.close()
-		ErrorLog(module_name, e)
-		InfoLog(module_name, "END SERVER")
+		error_log(module_name, e)
+		info_log(module_name, "END SERVER")
 		os.execv(sys.executable, [sys.executable, 'app.py'] + sys.argv)
 		sys.exit()
