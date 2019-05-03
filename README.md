@@ -16,9 +16,15 @@ Interactive Visualization of program "Angkot to School" by Bandung's Government.
 
 ## How to Run Locally
 
+### Run
+
 python app.py
 
 [local dashboard angkot to school](http://127.0.0.1:5000/)
+
+### Run Unittest
+
+python test.py
 
 ## Heroku Links
 
@@ -29,6 +35,8 @@ python app.py
 [flask](http://flask.pocoo.org/docs/1.0/)
 
 [jinja](http://jinja.pocoo.org/docs/2.10/templates/)
+
+[leaflet](https://leafletjs.com/examples/geojson/)
 
 [psycopg2](http://initd.org/psycopg/docs/)
 
