@@ -27,7 +27,6 @@ class TestDatabase(unittest.TestCase):
         # None
     
     def test_get_table(self):
-        # exist
         self.assertIn("sekolah", self.db.get_table())
 
     def test_get_column(self):
@@ -35,12 +34,10 @@ class TestDatabase(unittest.TestCase):
         self.assertIn("jumlah_pd", self.db.get_column("sekolah"))
         # non-exist-column
         self.assertNotIn("jumlah_pd", self.db.get_column("kecamatan"))
-        # non-exist-table
-        #with self.assertRaises(TypeError):
-        #    self.db.get_column("angkot")
-        # SQL Inject
-        #with self.assertRaises(TypeError):
-        #    self.db.get_column("1' or '1'='1")
-        # None
-        #with self.assertRaises(TypeError):
-        #    self.db.get_column(None)
+        # invalid
+        invalid_inputs = ["non_exist_table", "1' or '1'='1", None]
+        for i in range(len(invalid_inputs)) :
+            with self.subTest(i = i):
+                pass
+                #with self.assertRaises(TypeError):
+                    #self.db.get_column(invalid_inputs[i])
