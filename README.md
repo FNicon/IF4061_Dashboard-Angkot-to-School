@@ -24,7 +24,7 @@ python app.py
 
 ### Run Unittest
 
-python test.py
+python -m unittest -v test.py
 
 ## Heroku Links
 
@@ -47,6 +47,8 @@ python test.py
 [r](https://cran.r-project.org/manuals.html)
 
 [r spatial](https://www.rspatial.org/intr/1-introduction.html#)
+
+[unittest python](https://docs.python.org/3/library/unittest.html)
 
 ## Kelompok FOE & Friends
 
