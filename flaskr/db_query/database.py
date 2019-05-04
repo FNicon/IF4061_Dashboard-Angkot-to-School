@@ -12,7 +12,7 @@ class Database:
         if ('DATABASE_URL' in os.environ):
             self.DATABASE_URL = os.environ['DATABASE_URL']
         else :
-            self.DATABASE_URL = "dbname='IF4061_angkot' user='postgres' host='localhost' password='123snmitb' port='5433'"
+            self.DATABASE_URL = "dbname='IF4061_angkot' user='postgres' host='localhost' password='' port='5433'"
         
         self.table_name = self.get_table()
         self.column_name = {}
