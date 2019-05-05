@@ -6,7 +6,7 @@ from flaskr.log.log import error_log, info_log
 module_name = "flaskr.db_query.database"
 
 def get_kecamatan(kecamatan):
-    return select_kecamatan(build_sql_inputs(kecamatan))
+    return select_kecamatan(kecamatan)
 
 def build_sql_inputs(input_list):
     inputs = ", ".join(input_list)
@@ -20,24 +20,24 @@ def select_kecamatan(kecamatan):
     ]
     select_column = [
         db.column_name["kecamatan"]["kecamatan"],
-        "ST_AsGeoJSON({0})".format(db.column_name["kecamatan"]["geometry"])
+        db.column_name["kecamatan"]["geometry"]
     ]
     id_column = [
         db.column_name["kecamatan"]["kecamatan"]
     ]
-    query = sql.SQL("SELECT {0} "
-                    "FROM {1} "
-                    "WHERE {2} IN %s").format(
-        sql.SQL(', ').join(map(sql.Identifier,select_column)),
-        sql.Identifier(from_table[0]),
-        sql.Identifier(id_column[0])
+    query = sql.SQL("SELECT kecamatan.kecamatan, ST_AsGeoJSON({1}) "
+                    "FROM {2} ").format(
+        sql.Identifier(select_column[0]),
+        sql.Identifier(select_column[1]),
+        sql.Identifier(from_table[0])
         )
     try :
-        result = db.execute(query, [kecamatan], "fetch")
+        result = db.execute(query, [], "fetch")
         result_data = {}
-        if (result[0] is not None):
+        if (result is not None):
             i = 0
             for data in result:
+                print(data[0])
                 result_data["kecamatan"][i] = data[0]
                 result_data["geojson"][i] = data[1]
                 i = i + 1

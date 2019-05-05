@@ -71,7 +71,7 @@ class Database:
             result_data = {}
             if (result.description is not None):
                 for desc in result.description:
-                    result_data[desc[0]] = "{0}.{1}".format(table,desc[0])
+                    result_data[desc[0]] = desc[0]
         except Exception as e:
             error_log(module_name, e)
         else :
