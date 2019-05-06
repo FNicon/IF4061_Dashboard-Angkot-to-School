@@ -7,16 +7,10 @@
         crossorigin=""/>
 </head>
 <body>
-    {% if name %}
-        <h1>Hello {{ name }}!</h1>
-    {% else %}
-        <h1>Hello, World!</h1>
-    {% endif %}
+    <centre><h1>Angkot to School</h1></centre>
 
-    {{ kecamatan["kecamatan"] }}
-
-    {{ kecamatan["geojson"] }}
     <div id="mapid"></div>
+    <div id="kecamatan"></div>
     <div id="piechart"></div>
 
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
