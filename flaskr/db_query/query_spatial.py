@@ -3,17 +3,17 @@ from psycopg2 import sql
 from flaskr.db_query.database import Database
 from flaskr.log.log import error_log, info_log
 
-module_name = "flaskr.db_query.database"
+module_name = "flaskr.db_query.query_spatial"
 
-def get_kecamatan(kecamatan):
-    return select_kecamatan(kecamatan)
+def get_kecamatan():
+    return select_kecamatan()
 
 def build_sql_inputs(input_list):
     inputs = ", ".join(input_list)
     sql = "({})".format(inputs)
     return sql
 
-def select_kecamatan(kecamatan):
+def select_kecamatan():
     db = Database()
     from_table = [
         db.table_name["kecamatan"]
@@ -26,7 +26,8 @@ def select_kecamatan(kecamatan):
         db.column_name["kecamatan"]["kecamatan"]
     ]
     query = sql.SQL("SELECT kecamatan.kecamatan, ST_AsGeoJSON({1}) "
-                    "FROM {2}").format(
+                    "FROM {2} "
+                    "ORDER BY kecamatan.kecamatan ASC").format(
         sql.Identifier(select_column[0]),
         sql.Identifier(select_column[1]),
         sql.Identifier(from_table[0])

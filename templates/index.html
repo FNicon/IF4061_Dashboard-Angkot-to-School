@@ -8,6 +8,27 @@
 </head>
 <body>
     <centre><h1>Angkot to School</h1></centre>
+    
+    <form action="" method="post">
+        <p>Jumlah siswa/angkot</p>
+            <input type="text" value="10">
+        <p>Angkot</p>
+        {% for tryk in trayek["trayek"] %}
+            <input type="checkbox" name="trayek" value={{tryk}}> {{ tryk }}
+            <br>
+        {% endfor %}
+        <p>Sekolah</p>
+            <input type="checkbox" name="sekolah" value="SD"> SD
+            <input type="checkbox" name="sekolah" value="SMP"> SMP
+            <input type="checkbox" name="sekolah" value="SMK"> SMK
+            <input type="checkbox" name="sekolah" value="SMA"> SMA
+            <input type="checkbox" name="sekolah" value="SLB"> SLB
+        <p>Kecamatan</p>
+        {% for kec in kecamatan["kecamatan"] %}
+            <input type="checkbox" name="kecamatan" value={{kec}}> {{ kec }}
+            <br>
+        {% endfor %}
+    </form>
 
     <div id="mapid"></div>
     <div id="kecamatan"></div>
@@ -19,11 +40,9 @@
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
     <script type="text/javascript" src="../static/javascript/spatial.js"></script>
-    {% for geo in kecamatan["geojson"] %}
-    <script>
-        addGeoJSON('{{ geo }}');
-    </script>
-    {% endfor %}
-    </script>
     <script type="text/javascript" src="../static/javascript/chart.js"></script> 
+
+    {% for geo in kecamatan["geojson"] %}
+        <script>addGeoJSON('{{ geo }}');</script>
+    {% endfor %}
 </body>
