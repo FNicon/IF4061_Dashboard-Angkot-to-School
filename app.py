@@ -16,8 +16,8 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     kecamatan = get_kecamatan(['CICENDO','DAGO'])
-    print(kecamatan)
     return render_template('index.html', kecamatan=kecamatan)
+    #return render_template('index.html')
 
 if __name__ == '__main__':
     try:

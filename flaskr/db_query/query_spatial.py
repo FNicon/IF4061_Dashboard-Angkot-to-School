@@ -26,21 +26,23 @@ def select_kecamatan(kecamatan):
         db.column_name["kecamatan"]["kecamatan"]
     ]
     query = sql.SQL("SELECT kecamatan.kecamatan, ST_AsGeoJSON({1}) "
-                    "FROM {2} ").format(
+                    "FROM {2}").format(
         sql.Identifier(select_column[0]),
         sql.Identifier(select_column[1]),
         sql.Identifier(from_table[0])
         )
     try :
         result = db.execute(query, [], "fetch")
-        result_data = {}
+        r_kecamatan = []
+        r_geojson = []
         if (result is not None):
-            i = 0
-            for data in result:
-                print(data[0])
-                result_data["kecamatan"][i] = data[0]
-                result_data["geojson"][i] = data[1]
-                i = i + 1
+            for i in range(len(result)):
+                r_kecamatan.append(result[i][0])
+                r_geojson.append(result[i][1])
+            result_data = {
+                "kecamatan" : r_kecamatan,
+                "geojson"   : r_geojson
+            }
     except Exception as e:
         error_log(module_name, e)
     else :

@@ -1,8 +1,6 @@
 var mymap = L.map('mapid').setView([-6.90389, 107.61861], 13);
--6.923890, 107.641100
 
-addAttribution(
-    "key", 12, 18);
+addAttribution("key", 12, 18);
 
 function addAttribution(mapToken, minZoomInput, maxZoomInput) {
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -12,6 +10,11 @@ function addAttribution(mapToken, minZoomInput, maxZoomInput) {
         id: 'mapbox.streets',
         accessToken: mapToken
     }).addTo(mymap);
+}
+
+function addGeoJSON(geojsonFeature) {
+    var geoJSON = JSON.parse(String(geojsonFeature));
+    L.geoJSON(geoJSON).addTo(map);
 }
 
 var marker = L.marker([51.5, -0.09]).addTo(mymap);
