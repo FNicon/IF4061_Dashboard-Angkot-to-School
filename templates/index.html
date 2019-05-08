@@ -25,7 +25,7 @@
             <input type="checkbox" name="sekolah" value="SLB"> SLB
         <p>Kecamatan</p>
         {% for kec in kecamatan["kecamatan"] %}
-            <input type="checkbox" name="kecamatan" value={{kec}}> {{ kec }}
+            <input type="checkbox" name="kecamatan" value={{kec}}> {{ kec |capitalize }}
             <br>
         {% endfor %}
     </form>
@@ -44,8 +44,34 @@
     <script type="text/javascript" src="../static/javascript/chart.js"></script> 
     <script type="text/javascript" src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
+    <script>addKecamatanLayer();</script>
     {% for geo in kecamatan["geojson"] %}
-        <script>addGeoJSON('{{ geo }}');</script>
+        
     {% endfor %}
-    
+
+    <script>
+        var kebKecamatan = [];
+        var kebSiswa = [];
+        var kebAngkot = [];
+        var kebKebutuhan = [];
+    </script>
+    {% for kebKecamatan in kebutuhan["kecamatan"] %}
+        <script> kebKecamatan.push('{{ kebKecamatan }}');</script>
+    {% endfor %}
+
+    {% for kebSiswa in kebutuhan["siswa"] %}
+        <script> kebSiswa.push('{{ kebSiswa }}');</script>
+    {% endfor %}
+
+    {% for kebAngkot in kebutuhan["angkot"] %}
+        <script> kebAngkot.push('{{ kebAngkot }}');</script>
+    {% endfor %}
+
+    {% for kebKebutuhan in kebutuhan["kebutuhan"] %}
+        <script> kebKebutuhan.push('{{ kebKebutuhan }}');</script>
+    {% endfor %}
+
+    <script>
+        setChartData(kebKecamatan, kebAngkot, kebSiswa);
+    </script>
 </body>

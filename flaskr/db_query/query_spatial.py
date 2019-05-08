@@ -87,3 +87,4 @@ def select_sekolah(kecamatan):
         error_log(module_name, e)
     else :
         return result_data
+
