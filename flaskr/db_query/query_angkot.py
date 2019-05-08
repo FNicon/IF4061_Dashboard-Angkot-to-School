@@ -40,7 +40,58 @@ def select_trayek():
             result_data = {
                 "trayek"    : r_trayek,
                 "jarak"     : r_jarak,
-                "jumlah"    : r_jumlah,
+                "jumlah"    : r_jumlah
+            }
+    except Exception as e:
+        error_log(module_name, e)
+    else :
+        return result_data
+
+def select_jalur():
+    db = Database()
+    query = sql.SQL(
+        "SELECT "
+        "trayek.nama_trayek, "
+        "ST_Makeline( "
+            "ST_PointOnSurface(kecamatan.geometry) "
+            "ORDER BY ST_distance( "
+                "st_pointonsurface(kecamatan.geometry), "
+                "st_pointonsurface(kecamatan.geometry) "
+            ") "
+		") "
+        "FROM kecamatan "
+        "JOIN kecamatan_trayek ON kecamatan_trayek.id_kecamatan = kecamatan.object_id "
+        "JOIN trayek ON kecamatan_trayek.id_trayek = trayek.id_trayek "
+        "GROUP BY trayek.nama_trayek "
+        "ORDER BY nama_trayek")
+    try :
+        result = db.execute(query, [], "fetch")
+        r_trayek = []
+        r_jalur = []
+        if (result is not None):
+            for i in range(len(result)):
+                r_trayek.append(result[i][0])
+                r_jalur.append(result[i][1])
+            result_data = {
+                "trayek"    : r_trayek,
+                "jalur"     : r_jalur
+            }
+    except Exception as e:
+        error_log(module_name, e)
+    else :
+        return result_data
+
+def select_angkot_per_kecamatan():
+    pass
+
+def select_total_angkot():
+    db = Database()
+    query = sql.SQL("SELECT SUM(jumlah) FROM trayek")
+    try :
+        result = db.execute(query, [], "fetch")
+        if (result is not None):
+            result_data = {
+                "total"    : result[0][0]
             }
     except Exception as e:
         error_log(module_name, e)
