@@ -1,3 +1,40 @@
+var kecamatan_point = {
+    "type": "FeatureCollection",
+    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+    "features": [
+    {"type":"Point","coordinates":[107.626327255653,-6.93426100024991]},
+    {"type":"Point","coordinates":[107.585701563477,-6.90132750012433]},
+    {"type":"Point","coordinates":[107.572506173764,-6.90726049994922]},
+    {"type":"Point","coordinates":[107.614019376065,-6.88183499990125]},
+    {"type":"Point","coordinates":[107.649624050545,-6.92367900003681]},
+    {"type":"Point","coordinates":[107.613315082865,-6.93837100001477]},
+    {"type":"Point","coordinates":[107.589093038726,-6.8602844999668]},
+    {"type":"Point","coordinates":[107.555171054147,-6.93207549981882]},
+    {"type":"Point","coordinates":[107.617023959252,-6.91444400021798]},
+    {"type":"Point","coordinates":[107.61761463272,-6.9054950003467]},
+    {"type":"Point","coordinates":[107.588735585787,-6.88934899991121]},
+    {"type":"Point","coordinates":[107.677659201376,-6.92204949998993]},
+    {"type":"Point","coordinates":[107.599519339105,-6.94707449977165]},
+    {"type":"Point","coordinates":[107.590530333528,-6.93327650003987]},
+    {"type":"Point","coordinates":[107.718517999941,-6.91712299981091]},
+    {"type":"Point","coordinates":[107.655434974186,-6.94893150008478]},
+    {"type":"Point","coordinates":[107.650049778679,-6.89854449999803]},
+    {"type":"Point","coordinates":[107.602798622404,-6.93768100014285]},
+    {"type":"Point","coordinates":[107.629053999897,-6.88477100014877]},
+    {"type":"Point","coordinates":[107.609190166062,-6.86337799983039]},
+    {"type":"Point","coordinates":[107.712774239451,-6.90517650011109]},
+    {"type":"Point","coordinates":[107.575651751284,-6.94036849985107]},
+    {"type":"Point","coordinates":[107.640450974456,-6.92795400002064]},
+    {"type":"Point","coordinates":[107.661627322646,-6.91898300036403]},
+    {"type":"Point","coordinates":[107.671080203072,-6.89568250008667]},
+    {"type":"Point","coordinates":[107.707677396092,-6.94152299993937]},
+    {"type":"Point","coordinates":[107.677739683881,-6.95118750023942]},
+    {"type":"Point","coordinates":[107.630833693791,-6.9559124996913]},
+    {"type":"Point","coordinates":[107.695540219915,-6.95292399990873]},
+    {"type":"Point","coordinates":[107.690254290513,-6.92812999966472]}
+    ]
+}
+
 var kecamatan_geom = {
     "type": "FeatureCollection",
     "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },

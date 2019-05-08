@@ -49,12 +49,13 @@ function addAttribution(mapToken, minZoomInput, maxZoomInput) {
     }).addTo(mymap);
 }
 
-function addGeoJSON(geoJSONFeature) {
-    //console.log(geoJSONFeature)
-    //kecamatanLayer.addData()
-    //var geoJSON = JSON.stringify(geoJSONFeature);
-    //geoJSON = JSON.parse(geoJSON);
-    //L.geoJSON(geoJSONFeature).addTo(mymap);
+function addCircle(lat, long, radius, colour, opacity) {
+    var circle = L.circle([parseFloat(long), parseFloat(lat)], {
+        color: colour,
+        fillColor: '#f03',
+        fillOpacity: opacity,
+        radius: parseFloat(radius)
+    }).addTo(mymap);
 }
 
 function getColor(d) {
@@ -73,9 +74,9 @@ function style(feature) {
         fillColor: getColor(feature.properties.Luas_Km_),
         weight: 2,
         opacity: 1,
-        color: 'white',
+        color: 'black',
         dashArray: '3',
-        fillOpacity: 0.7
+        fillOpacity: 0.0
     };
 }
 
@@ -86,7 +87,7 @@ function highlightFeature(e) {
         weight: 5,
         color: '#666',
         dashArray: '',
-        fillOpacity: 0.7
+        fillOpacity: 0.0
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {

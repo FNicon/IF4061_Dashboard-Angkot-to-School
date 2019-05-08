@@ -14,14 +14,14 @@ def get_siswa():
 def select_siswa():
     db = Database()
     query = sql.SQL(
-        "SELECT kecamatan.kecamatan, st_pointonsurface(kecamatan.geometry), "
+        "SELECT kecamatan.kecamatan, ST_AsGeoJSON(st_pointonsurface(kecamatan.geometry)), "
             "jumlah_pd, jumlah_pd_sd, jumlah_pd_smp, jumlah_pd_sma, jumlah_pd_smk, jumlah_pd_slb "
         "FROM sekolah "
         "JOIN kecamatan ON sekolah.id_kecamatan=kecamatan.object_id")
     try :
         result = db.execute(query, [], "fetch")
         r_kecamatan = []
-        r_geom = []
+        r_geojson = []
         r_total = []
         r_sd = []
         r_smp = []
@@ -31,7 +31,7 @@ def select_siswa():
         if (result is not None):
             for i in range(len(result)):
                 r_kecamatan.append(result[i][0])
-                r_geom.append(result[i][1])
+                r_geojson.append(result[i][1])
                 r_total.append(result[i][2])
                 r_sd.append(result[i][3])
                 r_smp.append(result[i][4])
@@ -40,7 +40,7 @@ def select_siswa():
                 r_slb.append(result[i][7])
             result_data = {
                 "kecamatan"    : r_kecamatan,
-                "geom"     : r_geom,
+                "geojson"     : r_geojson,
                 "total"     : r_total,
                 "sd"     : r_sd,
                 "smp"     : r_smp,
