@@ -71,6 +71,7 @@ var chartKecamatan = {
     "type":"hbullet",
     title:{
         text: '5 Kecamatan yang Paling Kekurangan Angkot',
+        "font-family": "Open Sans",
         fontColor: '#212121'
     },
     labels:[
@@ -79,36 +80,36 @@ var chartKecamatan = {
             height: 50,
             width: 50,
             hook: 'scale:name=scale-x,index=0',
-            offsetX: -50
+             offsetX: -50
         },
         {
             text: kecamatan[3],
             height: 50,
             width: 50,
             hook: 'scale:name=scale-x,index=1',
-            offsetX: -50
+             offsetX: -50
         },
         {
             text: kecamatan[2],
             height: 50,
             width: 50,
             hook: 'scale:name=scale-x,index=2',
-            offsetX: -50
+             offsetX: -50
         },
         {
             text: kecamatan[1],
             height: 50,
             width: 50,
             hook: 'scale:name=scale-x,index=3',
-            offsetX: -50
+             offsetX: -50
         },
         {
             text: kecamatan[0],
             height: 50,
             width: 50,
             hook: 'scale:name=scale-x,index=4',
-            offsetX: -50
-        }
+             offsetX: -50
+        },
     ],
     scaleX:{
         label:{
@@ -122,6 +123,14 @@ var chartKecamatan = {
     scaleY:{
         label:{
             text: 'Banyak Angkot'
+        }
+    },
+    plot:{
+        animation:{
+            "effect":"11",
+            "method":"4",
+            "sequence":"ANIMATION_BY_PLOT_AND_NODE",
+            "speed":500
         }
     },
     plotarea:{
@@ -146,19 +155,30 @@ var chartKecamatan = {
                 //parseInt(siswa[3]),
                 //parseInt(siswa[4])
             ],
+            "hover-state": {
+                "visible": false
+            },
+                "tooltip": {
+                "text": "Actual: %v",
+                "font-color": "black",
+                "background-color": "white"
+            },
             goal: {
-                backgroundColor:'#993232'
+                backgroundColor:'#993232',
+                "tooltip": {
+                    "text": "Target Goal: %g",
+                    "font-color": "black",
+                    "background-color": "white"
+                }
             }
         }
     ]
-};
-
-
-window.onload=function(){
-    zingchart.render({
+    };
+    window.onload=function(){
+      zingchart.render({
         id:'chartKecamatan',
         data:chartKecamatan,
         height:300,
         width:600
-    });
-};
+      });
+    };

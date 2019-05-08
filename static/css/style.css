@@ -24,3 +24,7 @@ a.capt {
     margin: 0 0 5px;
     color: #777;
 }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
