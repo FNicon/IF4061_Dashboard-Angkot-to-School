@@ -8,6 +8,12 @@ module_name = "flaskr.db_query.query_angkot"
 def get_trayek():
     return select_trayek()
 
+def get_angkot_per_kecamatan():
+    pass
+
+def get_angkot_total():
+    return select_total_angkot()
+
 def select_trayek():
     db = Database()
     from_table = [
@@ -89,11 +95,7 @@ def select_total_angkot():
     query = sql.SQL("SELECT SUM(jumlah) FROM trayek")
     try :
         result = db.execute(query, [], "fetch")
-        if (result is not None):
-            result_data = {
-                "total"    : result[0][0]
-            }
     except Exception as e:
         error_log(module_name, e)
     else :
-        return result_data
+        return result[0][0]

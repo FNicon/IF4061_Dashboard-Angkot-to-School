@@ -1,15 +1,23 @@
 kecamatan = []
 angkot = []
 siswa = []
+totalAngkot = 0
+totalSiswa = 0
 
-function setChartData(inputKecamatan, inputAngkot, inputSiswa) {
+function setDataKecamatan(inputKecamatan, inputAngkot, inputSiswa) {
     kecamatan = inputKecamatan;
     angkot = inputAngkot;
     siswa = inputSiswa;
 }
 
+function setDataTotal(inputAngkot, inputSiswa) {
+    totalAngkot = inputAngkot;
+    totalSiswa = inputSiswa;
+}
+
 google.charts.load('current', {packages: ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawChartKecamatan);
+google.charts.setOnLoadCallback(drawChartTotal);
 
 function drawChartKecamatan() {
     var data = [];
@@ -27,18 +35,40 @@ function drawChartKecamatan() {
     ]);
 
     var optionsbar = {
-    'title': '5 Kecamatan yang Paling Kekurangan Angkot',
-    'chartArea': {'width': '50%'},
-    'hAxis': {
-       'title': 'Banyak Angkot',
-        'minValue': 0
-    },
-    'vAxis': {
-        'title': 'Kecamatan'
-    }
+        'title': '5 Kecamatan yang Paling Kekurangan Angkot',
+        'chartArea': {'width': '50%'},
+        'hAxis': {
+        'title': 'Banyak Angkot',
+            'minValue': 0
+        },
+        'vAxis': {
+            'title': 'Kecamatan'
+        }
     };
 
     var chartbar = new google.visualization.BarChart(document.getElementById('kecamatan'));
+    chartbar.draw(databar, optionsbar);
+}
+
+function drawChartTotal() {
+    var databar = google.visualization.arrayToDataTable([
+        ['Total', 'Total Angkot', 'Total Siswa', 'Total Kebutuhan Angkot'],
+        ['Total', parseInt(totalAngkot), parseInt(totalSiswa), parseInt(totalSiswa/10)]
+    ]);
+
+    var optionsbar = {
+        'title': 'Perbandingan Total Angkot, Siswa dan Kebutuhan Angkot',
+        'chartArea': {'width': '50%'},
+        'hAxis': {
+        'title': 'Jumlah Angkot',
+            'minValue': 0
+        },
+        'vAxis': {
+            'title': 'Total'
+        }
+    };
+
+    var chartbar = new google.visualization.BarChart(document.getElementById('total'));
     chartbar.draw(databar, optionsbar);
 }
 

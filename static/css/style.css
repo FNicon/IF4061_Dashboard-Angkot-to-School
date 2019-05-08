@@ -8,6 +8,11 @@
     width: 600px;
 }
 
+#total {
+    height: 300px;
+    width: 600px;
+}
+
 a.capt {
     text-transform: capitalize;
 }

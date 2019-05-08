@@ -46,6 +46,7 @@
         </div>
         <div class="column">
             <div id="kecamatan"></div>
+            <div id="total"></div>
         </div>
     </div>
     <div id="chartKecamatan"></div>
@@ -87,6 +88,10 @@
     {% endfor %}
 
     <script>
-        setChartData(kebKecamatan, kebAngkot, kebSiswa);
+        setDataKecamatan(kebKecamatan, kebAngkot, kebSiswa);
+    </script>
+
+    <script>
+        setDataTotal('{{ angkot_total }}', '{{ siswa_total["total"] }}');
     </script>
 </body>

@@ -7,7 +7,8 @@ from flask import Flask
 from flask import render_template
 
 from flaskr.db_query.query_angkot_sekolah import get_kebutuhan_per_km2
-from flaskr.db_query.query_angkot import get_trayek
+from flaskr.db_query.query_angkot import get_trayek, get_angkot_total
+from flaskr.db_query.query_sekolah import get_total_siswa
 from flaskr.db_query.query_spatial import get_kecamatan
 from flaskr.http_request.send import send_http_request
 from flaskr.log.log import error_log, info_log
@@ -20,11 +21,15 @@ def index():
     kecamatan = get_kecamatan()
     trayek = get_trayek()
     kebutuhan = get_kebutuhan_per_km2(10, 5)
+    angkot_total = get_angkot_total()
+    siswa_total = get_total_siswa()
     return render_template(
         'index.html',
         kecamatan = kecamatan,
         trayek = trayek,
-        kebutuhan = kebutuhan
+        kebutuhan = kebutuhan,
+        angkot_total = angkot_total,
+        siswa_total = siswa_total
     )
     #return render_template('index.html')
 
