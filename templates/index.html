@@ -1,41 +1,54 @@
 <!doctype html>
 <head>
-    <title>Hello from Flask</title>
+    <title>Angkot to School</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
         integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
         crossorigin=""/>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-    
+
 </head>
 <body>
     <centre><h1>Angkot to School</h1></centre>
     
-    <form action="" method="post">
-        <p>Jumlah siswa/angkot</p>
-            <input type="text" value="10">
-        <p>Angkot</p>
-        {% for tryk in trayek["trayek"] %}
-            <input type="checkbox" name="trayek" value={{tryk}}> {{ tryk }}
-            <br>
-        {% endfor %}
-        <p>Sekolah</p>
-            <input type="checkbox" name="sekolah" value="SD"> SD
-            <input type="checkbox" name="sekolah" value="SMP"> SMP
-            <input type="checkbox" name="sekolah" value="SMK"> SMK
-            <input type="checkbox" name="sekolah" value="SMA"> SMA
-            <input type="checkbox" name="sekolah" value="SLB"> SLB
-        <p>Kecamatan</p>
-        {% for kec in kecamatan["kecamatan"] %}
-            <input type="checkbox" name="kecamatan" value={{kec}}> {{ kec |capitalize }}
-            <br>
-        {% endfor %}
-    </form>
+    <div class="row">
+        <div class="column">
+            <form action="" method="post">
+                <p>Jumlah siswa/angkot</p>
+                    <input type="text" value="10">
+                <!-- <p>Angkot</p>
+                {% for tryk in trayek["trayek"] %}
+                    <input type="checkbox" name="trayek" value={{tryk}}> {{ tryk }}
+                    <br>
+                {% endfor %} -->
+            </form>
+        </div>
+        <div class="column">
+            <form action="" method="post">
+                <p>Sekolah</p>
+                    <input type="checkbox" name="sekolah" value="SD"> SD
+                    <input type="checkbox" name="sekolah" value="SMP"> SMP
+                    <input type="checkbox" name="sekolah" value="SMK"> SMK
+                    <input type="checkbox" name="sekolah" value="SMA"> SMA
+                    <input type="checkbox" name="sekolah" value="SLB"> SLB
+                <!-- <p>Kecamatan</p>
+                {% for kec in kecamatan["kecamatan"] %}
+                    <input type="checkbox" name="kecamatan" value={{kec}}> {{ kec |capitalize }}
+                    <br>
+                {% endfor %} -->
+            </form>
+        </div>
+    </div>
 
-    <div id="mapid"></div>
-    <div id="kecamatan"></div>
+    <div class="row">
+        <div class="column">
+            <div id="mapid"></div>
+        </div>
+        <div class="column">
+            <div id="kecamatan"></div>
+        </div>
+    </div>
     <div id="chartKecamatan"></div>
-    <div id="piechart"></div>
 
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
         integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="

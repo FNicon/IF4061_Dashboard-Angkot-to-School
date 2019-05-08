@@ -28,3 +28,14 @@ a.capt {
 body {
     font-family: 'Open Sans', sans-serif;
 }
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
