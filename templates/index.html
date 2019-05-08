@@ -71,7 +71,7 @@
         var kebKebutuhan = [];
     </script>
     {% for kebKecamatan in kebutuhan["kecamatan"] %}
-        <script> kebKecamatan.push('{{ kebKecamatan }}');</script>
+        <script> kebKecamatan.push('{{ kebKecamatan |capitalize }}');</script>
     {% endfor %}
 
     {% for kebSiswa in kebutuhan["siswa"] %}
