@@ -11,47 +11,52 @@
 
 </head>
 <body>
-    <centre><h1>Angkot to School</h1></centre>
-    
-    <div class="row">
-        <div class="column">
-            <form action="" method="post">
-                <p>Jumlah siswa/angkot</p>
-                    <input type="text" value="10">
-                <!-- <p>Angkot</p>
-                {% for tryk in trayek["trayek"] %}
-                    <input type="checkbox" name="trayek" value={{tryk}}> {{ tryk }}
-                    <br>
-                {% endfor %} -->
-            </form>
-        </div>
-        <div class="column">
-            <form action="" method="post">
-                <p>Sekolah</p>
-                    <input type="checkbox" name="sekolah" value="SD"> SD
-                    <input type="checkbox" name="sekolah" value="SMP"> SMP
-                    <input type="checkbox" name="sekolah" value="SMK"> SMK
-                    <input type="checkbox" name="sekolah" value="SMA"> SMA
-                    <input type="checkbox" name="sekolah" value="SLB"> SLB
-                <!-- <p>Kecamatan</p>
-                {% for kec in kecamatan["kecamatan"] %}
-                    <input type="checkbox" name="kecamatan" value={{kec}}> {{ kec |capitalize }}
-                    <br>
-                {% endfor %} -->
-            </form>
-        </div>
+    <div style="text-align: center;">
+        <h1>Angkot to School</h1>
+        Seberapa Siapkah Kota Bandung?
     </div>
-
+    <hr>
+    <p>Program “Angkot to School” merupakan program yang direncanakan pemerintah kota Bandung untuk mengatasi kemacetan.
+            Dalam program ini, angkot memiliki fungsi yang sama dengan bis sekolah, yaitu menjemput dan mengantar siswa di titik kumpul.
+            Dengan demikian, jumlah kendaraan pribadi akan berkurang pada saat jam antar jemput sekolah.</p>
     <div class="row">
         <div class="column">
+            <div class="column1">
+                <form action="" method="post">
+                    <p>Jumlah siswa/angkot</p>
+                        <input type="text" value="10">
+                    <!-- <p>Angkot</p>
+                    {% for tryk in trayek["trayek"] %}
+                        <input type="checkbox" name="trayek" value={{tryk}}> {{ tryk }}
+                        <br>
+                    {% endfor %} -->
+                </form>
+            </div>
+            
+            <div class="column2">
+                <form action="" method="post">
+                    <p>Sekolah</p>
+                        <input type="checkbox" name="sekolah" value="SD"> SD
+                        <input type="checkbox" name="sekolah" value="SMP"> SMP
+                        <input type="checkbox" name="sekolah" value="SMK"> SMK
+                        <input type="checkbox" name="sekolah" value="SMA"> SMA
+                        <input type="checkbox" name="sekolah" value="SLB"> SLB
+                    <!-- <p>Kecamatan</p>
+                    {% for kec in kecamatan["kecamatan"] %}
+                        <input type="checkbox" name="kecamatan" value={{kec}}> {{ kec |capitalize }}
+                        <br>
+                    {% endfor %} -->
+                </form>
+            </div>
             <div id="mapid"></div>
-            <p>Bagian ini berisi pendahuluan</p>
         </div>
         <div class="column">
-            <div id="kecamatan"></div>
-            <div id="total"></div>
-            <p>Bagian ini berisi kesimpulan</p>
-            <p>Bagian ini berisi sumber data</p>
+            <div class="row">
+                <div id="kecamatan"></div>
+                <div id="total"></div>
+                <p>Bagian ini berisi kesimpulan</p>
+                <p>Bagian ini berisi sumber data</p>
+            </div>
         </div>
     </div>
     <div id="chartKecamatan"></div>
