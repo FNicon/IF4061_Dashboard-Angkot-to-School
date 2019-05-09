@@ -1,5 +1,6 @@
 var mymap = L.map('mapid').setView([-6.90600, 107.64000], 12);
 mymap.setMaxBounds(mymap.getBounds());
+
 addAttribution("pk.eyJ1IjoiZmluaWtvIiwiYSI6ImNqdjk3eDhtNTBxM2s0M24zOGVnampyd2EifQ.6MnSmaqKUeB9soPyAfu3OQ", 12, 14);
 
 var kecamatanLayer = L.geoJSON(kecamatan_geom, {
@@ -16,12 +17,12 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Persebaran Jumlah dan Kebutuhan Angkot</h4>' +  (props ?
+    this._div.innerHTML = '<h4>Persebaran Jumlah dan Kebutuhan Angkot</h4>' +  '<div style="color:#000000"> ' + (props ?
         '<b>' + props.KECAMATAN + '</b>'
         + '<br /> Angkot ' + props.angkot
         + '<br /> Kebutuhan Angkot ' + props.kebutuhan
         + '<br /> Terpenuhi ' + Math.round(props.angkot / props.kebutuhan * 100) + '%'
-        : 'Hover diatas kecamatan');
+        : 'Hover diatas kecamatan</div>');
 };
 info.addTo(mymap);
 
