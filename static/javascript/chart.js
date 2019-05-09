@@ -116,7 +116,7 @@ function drawChartKecamatan() {
 
 function drawChartTotalBubble() {
     var data = google.visualization.arrayToDataTable([
-        ['ID', '', '', 'Region',     'Population'],
+        ['ID', '', '', 'Keterangan',     'Jumlah'],
         ['',    0,              0,      'Total Angkot', parseInt(totalAngkot)],
         ['',    0,              0,      'Total Siswa', parseInt(totalSiswa)],
         ['',    0,              0,      'Total Kebutuhan Angkot', parseInt(totalSiswa/10+1)],
