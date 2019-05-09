@@ -1,13 +1,39 @@
 kecamatan = []
-angkot = []
-siswa = []
+kebutuhanAngkot = []
+jumlahAngkot = []
 totalAngkot = 0
 totalSiswa = 0
 
-function setDataKecamatan(inputKecamatan, inputAngkot, inputSiswa) {
+function setDataKecamatan(inputKecamatan, inputJmlAngkot, inputKebutuhanAngkot) {
     kecamatan = inputKecamatan;
-    angkot = inputAngkot;
-    siswa = inputSiswa;
+    kebutuhanAngkot = inputKebutuhanAngkot;
+    jumlahAngkot = inputJmlAngkot;
+}
+
+function getSelisih() {
+    var i;
+    var selisih = [];
+    for (i = 0; i < kecamatan.length; i++) {
+        selisih.push(jumlahAngkot[i] - kebutuhanAngkot[i]);
+    }
+    return selisih;
+}
+
+function getLowestSelisihIndex() {
+    var selisih = getSelisih();
+    var sorted = getSelisih();
+    sorted.sort();
+    var lowestIndex = []
+    var i;
+    var j;
+    for (i = 0; i < 5; i++) {
+        j = 0;
+        while (j < selisih.length && selisih[j] != sorted[i]) {
+            j = j + 1;
+        }
+        lowestIndex.push(j);
+    }
+    return lowestIndex;
 }
 
 function setDataTotal(inputAngkot, inputSiswa) {
@@ -21,12 +47,17 @@ google.charts.setOnLoadCallback(drawChartTotalBubble);
 
 function drawChartKecamatan() {
     var data = [];
+    var lowestIndex = getLowestSelisihIndex();
     for (i = 0; i < kecamatan.length; i++) {
-        data.push([kecamatan[i], angkot[i], siswa[i]]);
+        data.push([
+            kecamatan[lowestIndex[i]], 
+            jumlahAngkot[lowestIndex[i]], 
+            kebutuhanAngkot[lowestIndex[i]]
+        ]);
     }
 
     var databar = google.visualization.arrayToDataTable([
-        ['Kecamatan', 'Banyak angkot', 'Banyak angkot yang dibutuhkan'],
+        ['Kecamatan', 'Total angkot', 'Total Kebutuhan Angkot'],
         [data[0][0], parseInt(data[0][1]), parseInt(data[0][2])],
         [data[1][0], parseInt(data[1][1]), parseInt(data[1][2])],
         [data[2][0], parseInt(data[2][1]), parseInt(data[2][2])],
@@ -38,7 +69,7 @@ function drawChartKecamatan() {
         'title': '5 Kecamatan yang Paling Kekurangan Angkot',
         'chartArea': {'width': '50%'},
         'hAxis': {
-            'title': 'Banyak Angkot',
+            'title': 'Total Angkot',
             'minValue': 0
         },
         'vAxis': {

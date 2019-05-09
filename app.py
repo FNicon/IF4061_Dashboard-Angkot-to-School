@@ -21,7 +21,6 @@ app = Flask(__name__)
 def index():
     kecamatan = get_kecamatan()
     trayek = get_trayek()
-    kebutuhan = get_kebutuhan_per_km2(10, 5)
     angkot_total = get_angkot_total()
     siswa_total = get_total_siswa()
     siswa = get_siswa()
@@ -49,7 +48,6 @@ def index():
         'index.html',
         kecamatan = kecamatan,
         trayek = trayek,
-        kebutuhan = kebutuhan,
         angkot_total = angkot_total,
         siswa_total = siswa_total,
         siswa = siswa,

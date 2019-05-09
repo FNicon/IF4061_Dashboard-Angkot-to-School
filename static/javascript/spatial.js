@@ -1,3 +1,7 @@
+kecamatanSpatial = []
+kebutuhanAngkotSpatial = []
+jumlahAngkotSpatial = []
+
 var mymap = L.map('mapid').setView([-6.90600, 107.64000], 12);
 mymap.setMaxBounds(mymap.getBounds());
 addAttribution("KEY", 12, 14);
@@ -16,9 +20,12 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Luas Kecamatan Kota Bandung</h4>' +  (props ?
-        '<b>' + props.KECAMATAN + '</b><br />' + props.Luas_Km_ + ' people / mi<sup>2</sup>'
-        : 'Hover over a state');
+    this._div.innerHTML = '<h4>Persebaran Jumlah dan Kebutuhan Angkot</h4>' +  (props ?
+        '<b>' + props.KECAMATAN + '</b>'
+        + '<br /> Angkot ' + props.angkot
+        + '<br /> Kebutuhan Angkot ' + props.kebutuhan
+        + '<br /> Selisih ' + props.selisih
+        : 'Hover diatas kecamatan');
 };
 info.addTo(mymap);
 
@@ -36,7 +43,34 @@ legend.onAdd = function (map) {
     }
     return div;
 };
-legend.addTo(mymap);
+//legend.addTo(mymap);
+
+function setDataKecamatanSpatial(inputKecamatan, inputJmlAngkot, inputKebutuhanAngkot) {
+    kecamatanSpatial = inputKecamatan;
+    kebutuhanAngkotSpatial = inputKebutuhanAngkot;
+    jumlahAngkotSpatial = inputJmlAngkot;
+}
+
+function getKecamatanIndex(inputKecamatan) {
+    var i = 0;
+    while (i < kecamatanSpatial.length && kecamatanSpatial[i] != inputKecamatan) {
+        i = i + 1;
+    }
+    return i;
+}
+
+kecamatanLayer.eachLayer(function(layer) {
+    var kecamatanIndex = getKecamatanIndex(layer.feature.properties.KECAMATAN);
+    layer.feature.properties.angkot = parseInt(jumlahAngkotSpatial[kecamatanIndex]);
+    layer.feature.properties.kebutuhan = parseInt(kebutuhanAngkotSpatial[kecamatanIndex]);
+    layer.feature.properties.selisih = parseInt(jumlahAngkotSpatial[kecamatanIndex]) 
+        - parseInt(kebutuhanAngkotSpatial[kecamatanIndex]);
+    layer.bindPopup(
+        'Kecamatan:' + layer.feature.properties.KECAMATAN
+        + 'Jumlah: ' + layer.feature.properties.angkot
+        + 'Kebutuhan: ' + layer.feature.properties.kebutuhan
+        + 'Selisih: ' + layer.feature.properties.selisih);
+});
 
 function addAttribution(mapToken, minZoomInput, maxZoomInput) {
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -49,10 +83,10 @@ function addAttribution(mapToken, minZoomInput, maxZoomInput) {
     }).addTo(mymap);
 }
 
-function addCircle(lat, long, radius, colour, opacity) {
+function addCircle(lat, long, radius, colour, fillColour, opacity) {
     var circle = L.circle([parseFloat(long), parseFloat(lat)], {
         color: colour,
-        fillColor: '#f03',
+        fillColor: fillColour,
         fillOpacity: opacity,
         radius: parseFloat(radius)
     }).addTo(mymap);

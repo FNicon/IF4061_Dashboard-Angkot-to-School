@@ -77,13 +77,15 @@
             addCircle(
                 '{{ geo[1]["coordinates"][0] }}',
                 '{{ geo[1]["coordinates"][1] }}',
-                '{{ geo[2]/10 }}',
-                'red',
+                '{{ geo[2]/20 }}',
+                'yellow',
+                'yellow',
                 0.5);
             addCircle(
                 '{{ geo[1]["coordinates"][0] }}',
                 '{{ geo[1]["coordinates"][1] }}',
-                '{{ geo[3] }}',
+                '{{ geo[3]/2 }}',
+                'blue',
                 'blue',
                 0.0);
         </script>
@@ -91,28 +93,24 @@
 
     <script>
         var kebKecamatan = [];
-        var kebSiswa = [];
         var kebAngkot = [];
-        var kebKebutuhan = [];
+        var jmlAngkot = [];
     </script>
-    {% for kebKecamatan in kebutuhan["kecamatan"] %}
-        <script> kebKecamatan.push('{{ kebKecamatan |capitalize }}');</script>
+    {% for kebKecamatan in spatial %}
+        <script> kebKecamatan.push('{{ kebKecamatan[0] |capitalize }}');</script>
     {% endfor %}
 
-    {% for kebSiswa in kebutuhan["siswa"] %}
-        <script> kebSiswa.push('{{ kebSiswa }}');</script>
+    {% for kebAngkot in spatial %}
+        <script> kebAngkot.push('{{ kebAngkot[2]/10 }}');</script>
     {% endfor %}
 
-    {% for kebAngkot in kebutuhan["angkot"] %}
-        <script> kebAngkot.push('{{ kebAngkot }}');</script>
-    {% endfor %}
-
-    {% for kebKebutuhan in kebutuhan["kebutuhan"] %}
-        <script> kebKebutuhan.push('{{ kebKebutuhan }}');</script>
+    {% for jmlAngkot in spatial %}
+        <script> jmlAngkot.push('{{ jmlAngkot[3] }}');</script>
     {% endfor %}
 
     <script>
-        setDataKecamatan(kebKecamatan, kebAngkot, kebSiswa);
+        setDataKecamatan(kebKecamatan, jmlAngkot, kebAngkot);
+        setDataKecamatanSpatial(kebKecamatan, jmlAngkot, kebAngkot);
     </script>
 
     <script>
