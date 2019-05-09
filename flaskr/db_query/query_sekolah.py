@@ -17,7 +17,8 @@ def select_siswa():
         "SELECT kecamatan.kecamatan, ST_AsGeoJSON(st_pointonsurface(kecamatan.geometry)), "
             "jumlah_pd, jumlah_pd_sd, jumlah_pd_smp, jumlah_pd_sma, jumlah_pd_smk, jumlah_pd_slb "
         "FROM sekolah "
-        "JOIN kecamatan ON sekolah.id_kecamatan=kecamatan.object_id")
+        "JOIN kecamatan ON sekolah.id_kecamatan=kecamatan.object_id "
+        "ORDER BY kecamatan.kecamatan")
     try :
         result = db.execute(query, [], "fetch")
         r_kecamatan = []
