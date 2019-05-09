@@ -67,15 +67,41 @@ function drawChartKecamatan() {
 
     var optionsbar = {
         'title': '5 Kecamatan yang Paling Kekurangan Angkot',
+        'titleTextStyle': {
+            color: '#FFFFFF'
+        },
         'colors': ['#28B67C','#E12F2F'],
-        backgroundColor: '#B4B4B4',
+        backgroundColor: '#033649',
         'chartArea': {'width': '50%'},
+        legend: {
+            textStyle: {
+                color: '#FFFFFF'
+            }
+        },
         'hAxis': {
             'title': 'Total Angkot',
-            'minValue': 0
+            'minValue': 0,
+            gridlines: {
+                color: '#FFFFFF'
+            },
+            textStyle : {
+                color: '#FFFFFF'
+            },
+            titleTextStyle: {
+                color: '#FFFFFF'
+            }
         },
         'vAxis': {
-            'title': 'Kecamatan'
+            'title': 'Kecamatan',
+            gridlines: {
+                color: '#FFFFFF'
+            },
+            textStyle : {
+                color: '#FFFFFF'
+            },
+            titleTextStyle: {
+                color: '#FFFFFF'
+              }
         },
         focusTarget: 'category',
         tooltip: {
@@ -97,14 +123,22 @@ function drawChartTotalBubble() {
 
     var options = {
         title: 'Perbandingan Total Angkot, Siswa dan Kebutuhan Angkot',
+        'titleTextStyle': {
+            color: '#FFFFFF'
+        },
         colors: ['#28B67C','#00A2FF','#E12F2F'],
-        backgroundColor: '#B4B4B4',
+        backgroundColor: '#033649',
         hAxis: {
             gridlines: {
                 color: 'transparent'
             },
             textStyle : {
                 color: 'transparent'
+            }
+        },
+        legend: {
+            textStyle: {
+                color: '#FFFFFF'
             }
         },
         vAxis: {
