@@ -75,7 +75,8 @@ function addCircle(lat, long, radius, colour, fillColour, opacity) {
         fillColor: fillColour,
         fillOpacity: opacity,
         radius: parseFloat(radius),
-        weight: 0.5
+        weight: 0.5,
+        interactive: false
     }).addTo(mymap);
 }
 
@@ -109,7 +110,7 @@ function highlightFeature(e) {
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
+        //layer.bringToFront();
     }
     info.update(layer.feature.properties);
 }
