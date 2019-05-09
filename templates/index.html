@@ -67,28 +67,8 @@
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
     <script type="text/javascript" src="../static/javascript/spatial_data.js"></script>
-    <script type="text/javascript" src="../static/javascript/spatial.js"></script>
     <script type="text/javascript" src="../static/javascript/chart.js"></script> 
     <script type="text/javascript" src="https://cdn.zingchart.com/zingchart.min.js"></script>
-
-    {% for geo in spatial %}
-        <script>
-            addCircle(
-                '{{ geo[1]["coordinates"][0] }}',
-                '{{ geo[1]["coordinates"][1] }}',
-                '{{ geo[2]/20 }}',
-                'yellow',
-                'yellow',
-                0.5);
-            addCircle(
-                '{{ geo[1]["coordinates"][0] }}',
-                '{{ geo[1]["coordinates"][1] }}',
-                '{{ geo[3]/2 }}',
-                'blue',
-                'blue',
-                0.0);
-        </script>
-    {% endfor %}
 
     <script>
         var kebKecamatan = [];
@@ -109,10 +89,29 @@
 
     <script>
         setDataKecamatan(kebKecamatan, jmlAngkot, kebAngkot);
-        setDataKecamatanSpatial(kebKecamatan, jmlAngkot, kebAngkot);
     </script>
 
     <script>
         setDataTotal('{{ angkot_total }}', '{{ siswa_total["total"] }}');
     </script>
+
+    <script type="text/javascript" src="../static/javascript/spatial.js"></script>
+    {% for geo in spatial %}
+        <script>
+            addCircle(
+                '{{ geo[1]["coordinates"][0] }}',
+                '{{ geo[1]["coordinates"][1] }}',
+                '{{ geo[2]/20 }}',
+                'white',
+                '#E12F2F',
+                0.5);
+            addCircle(
+                '{{ geo[1]["coordinates"][0] }}',
+                '{{ geo[1]["coordinates"][1] }}',
+                '{{ geo[3]/2 }}',
+                'white',
+                '#28B67C',
+                0.5);
+        </script>
+    {% endfor %}
 </body>

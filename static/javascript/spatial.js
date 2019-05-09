@@ -1,7 +1,3 @@
-kecamatanSpatial = []
-kebutuhanAngkotSpatial = []
-jumlahAngkotSpatial = []
-
 var mymap = L.map('mapid').setView([-6.90600, 107.64000], 12);
 mymap.setMaxBounds(mymap.getBounds());
 addAttribution("KEY", 12, 14);
@@ -45,15 +41,9 @@ legend.onAdd = function (map) {
 };
 //legend.addTo(mymap);
 
-function setDataKecamatanSpatial(inputKecamatan, inputJmlAngkot, inputKebutuhanAngkot) {
-    kecamatanSpatial = inputKecamatan;
-    kebutuhanAngkotSpatial = inputKebutuhanAngkot;
-    jumlahAngkotSpatial = inputJmlAngkot;
-}
-
 function getKecamatanIndex(inputKecamatan) {
     var i = 0;
-    while (i < kecamatanSpatial.length && kecamatanSpatial[i] != inputKecamatan) {
+    while (i < kecamatan.length && kecamatan[i].toUpperCase() != inputKecamatan.toUpperCase()) {
         i = i + 1;
     }
     return i;
@@ -61,15 +51,10 @@ function getKecamatanIndex(inputKecamatan) {
 
 kecamatanLayer.eachLayer(function(layer) {
     var kecamatanIndex = getKecamatanIndex(layer.feature.properties.KECAMATAN);
-    layer.feature.properties.angkot = parseInt(jumlahAngkotSpatial[kecamatanIndex]);
-    layer.feature.properties.kebutuhan = parseInt(kebutuhanAngkotSpatial[kecamatanIndex]);
-    layer.feature.properties.selisih = parseInt(jumlahAngkotSpatial[kecamatanIndex]) 
-        - parseInt(kebutuhanAngkotSpatial[kecamatanIndex]);
-    layer.bindPopup(
-        'Kecamatan:' + layer.feature.properties.KECAMATAN
-        + 'Jumlah: ' + layer.feature.properties.angkot
-        + 'Kebutuhan: ' + layer.feature.properties.kebutuhan
-        + 'Selisih: ' + layer.feature.properties.selisih);
+    layer.feature.properties.angkot = parseInt(jumlahAngkot[kecamatanIndex]);
+    layer.feature.properties.kebutuhan = parseInt(kebutuhanAngkot[kecamatanIndex]);
+    layer.feature.properties.selisih = parseInt(jumlahAngkot[kecamatanIndex]) 
+        - parseInt(kebutuhanAngkot[kecamatanIndex]);
 });
 
 function addAttribution(mapToken, minZoomInput, maxZoomInput) {
@@ -88,7 +73,8 @@ function addCircle(lat, long, radius, colour, fillColour, opacity) {
         color: colour,
         fillColor: fillColour,
         fillOpacity: opacity,
-        radius: parseFloat(radius)
+        radius: parseFloat(radius),
+        weight: 1
     }).addTo(mymap);
 }
 
@@ -105,12 +91,12 @@ function getColor(d) {
 
 function style(feature) {
     return {
-        fillColor: getColor(feature.properties.Luas_Km_),
+        fillColor: getColor(feature.properties.selisih),
         weight: 2,
         opacity: 1,
         color: 'black',
         dashArray: '3',
-        fillOpacity: 0.0
+        fillOpacity: 0.2
     };
 }
 
