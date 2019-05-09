@@ -2,17 +2,15 @@
 
 Interactive Visualization of program "Angkot to School" by Bandung's Government.
 
-## Interactions
+## About
 
-1. Nampilin jenis angkot dan jumlahnya (Hover)
-2. Zoom nampilin icon angkot.
-3. Klik kecamatan, fokus ke kecamatan
-4. Nampilin status kecamatan (kurang/lebih)
-5. Nampilin jenis sekolah (Hover)
-6. Zoom nampilin icon sekolah(?)
-7. Filter jenis angkot
-8. Filter jenis sekolah
-9. 5 Ter (untuk prioritas) mungkin statis.
+Program “Angkot to School” merupakan program yang direncanakan pemerintah kota Bandung untuk mengatasi kemacetan. Dalam program ini, angkot memiliki fungsi yang sama dengan bis sekolah, yaitu menjemput dan mengantar siswa di titik kumpul. Dengan demikian, jumlah kendaraan pribadi akan berkurang pada saat jam antar jemput sekolah.
+
+## Interactivity
+
+1. Menampilkan kecamatan, jumlah angkot, kebutuhan, jumlah siswa dan persentase ketika dihover. Detail informasi yang muncul tergantung pada jenis chart.
+2. Zoom ke kecamatan ketika kecamatan di peta diklik
+3. Zoom peta sesuai kebutuhan
 
 ## How to Run Locally
 
@@ -26,29 +24,19 @@ python app.py
 
 python -m unittest -v test.py
 
-## Heroku Links
+## Heroku Links (Active link to the runnable dashboard)
 
 [dashboard angkot to school](http://dashboard-angkot-to-school.herokuapp.com/)
 
-## Tutorials
+## Used Tools
 
-[flask](http://flask.pocoo.org/docs/1.0/)
-
-[jinja](http://jinja.pocoo.org/docs/2.10/templates/)
-
-[leaflet](https://leafletjs.com/examples/geojson/)
-
-[psycopg2](http://initd.org/psycopg/docs/)
-
-[python](https://www.python.org/dev/peps/pep-0008/#naming-conventions)
-
-[r](https://www.r-project.org/other-docs.html)
-
-[r](https://cran.r-project.org/manuals.html)
-
-[r spatial](https://www.rspatial.org/intr/1-introduction.html#)
-
-[unittest python](https://docs.python.org/3/library/unittest.html)
+1. [flask](http://flask.pocoo.org/docs/1.0/)
+2. [jinja](http://jinja.pocoo.org/docs/2.10/templates/)
+3. [leaflet](https://leafletjs.com/examples/geojson/)
+4. [psycopg2](http://initd.org/psycopg/docs/)
+5. [python](https://docs.python.org/3/)
+6. [unittest python](https://docs.python.org/3/library/unittest.html)
+7. [google chart](https://developers.google.com/chart/)
 
 ## Kelompok FOE & Friends
 

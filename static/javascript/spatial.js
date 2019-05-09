@@ -1,6 +1,6 @@
 var mymap = L.map('mapid').setView([-6.90600, 107.64000], 12);
 mymap.setMaxBounds(mymap.getBounds());
-addAttribution("KEY", 12, 14);
+addAttribution("pk.eyJ1IjoiZmluaWtvIiwiYSI6ImNqdjk3eDhtNTBxM2s0M24zOGVnampyd2EifQ.6MnSmaqKUeB9soPyAfu3OQ", 12, 14);
 
 var kecamatanLayer = L.geoJSON(kecamatan_geom, {
     style: style,
