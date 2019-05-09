@@ -22,44 +22,53 @@
     <div class="row">
         <div class="column">
             <div class="column1">
-                <form action="" method="post">
+                <!--<form action="" method="post">
                     <p>Jumlah siswa/angkot</p>
-                        <input type="text" value="10">
+                        <input type="text" value="10">-->
                     <!-- <p>Angkot</p>
                     {% for tryk in trayek["trayek"] %}
                         <input type="checkbox" name="trayek" value={{tryk}}> {{ tryk }}
                         <br>
                     {% endfor %} -->
-                </form>
+                <!--</form>-->
             </div>
             
             <div class="column2">
-                <form action="" method="post">
+                <!--<form action="" method="post">
                     <p>Sekolah</p>
                         <input type="checkbox" name="sekolah" value="SD"> SD
                         <input type="checkbox" name="sekolah" value="SMP"> SMP
                         <input type="checkbox" name="sekolah" value="SMK"> SMK
                         <input type="checkbox" name="sekolah" value="SMA"> SMA
-                        <input type="checkbox" name="sekolah" value="SLB"> SLB
+                        <input type="checkbox" name="sekolah" value="SLB"> SLB-->
                     <!-- <p>Kecamatan</p>
                     {% for kec in kecamatan["kecamatan"] %}
                         <input type="checkbox" name="kecamatan" value={{kec}}> {{ kec |capitalize }}
                         <br>
                     {% endfor %} -->
-                </form>
+                <!--</form>-->
             </div>
             <div id="mapid"></div>
         </div>
         <div class="column">
             <div class="row">
-                <div id="kecamatan"></div>
                 <div id="total_bubble"></div>
+                <p>
+                    Terpenuhi :
+                    <script>
+                        document.write(Math.round(
+                            ('{{ angkot_total }}' / '{{ siswa_total["total"]/10 }}') * 100
+                        ));
+                    </script>
+                    %
+                </p>
+                <div id="kecamatan"></div>
                 <p>Bagian ini berisi kesimpulan</p>
                 <p>Bagian ini berisi sumber data</p>
             </div>
         </div>
     </div>
-    <div id="chartKecamatan"></div>
+    <!-- <div id="chartKecamatan"></div> -->
 
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
         integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
@@ -104,14 +113,16 @@
                 '{{ geo[2]/20 }}',
                 'white',
                 '#E12F2F',
-                0.5);
-            addCircle(
-                '{{ geo[1]["coordinates"][0] }}',
-                '{{ geo[1]["coordinates"][1] }}',
-                '{{ geo[3]/2 }}',
-                'white',
-                '#28B67C',
-                0.5);
+            0.8);
+            if (parseInt('{{ geo[3]/2 }}') > 0) {
+                addCircle(
+                    '{{ geo[1]["coordinates"][0] }}',
+                    '{{ geo[1]["coordinates"][1] }}',
+                    '{{ geo[3]/2 }}',
+                    'white',
+                    '#28B67C',
+                0.8);
+            }
         </script>
     {% endfor %}
 </body>

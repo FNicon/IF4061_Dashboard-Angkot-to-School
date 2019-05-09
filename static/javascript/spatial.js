@@ -20,7 +20,7 @@ info.update = function (props) {
         '<b>' + props.KECAMATAN + '</b>'
         + '<br /> Angkot ' + props.angkot
         + '<br /> Kebutuhan Angkot ' + props.kebutuhan
-        + '<br /> Selisih ' + props.selisih
+        + '<br /> Terpenuhi ' + Math.round(props.angkot / props.kebutuhan * 100) + '%'
         : 'Hover diatas kecamatan');
 };
 info.addTo(mymap);
@@ -74,19 +74,16 @@ function addCircle(lat, long, radius, colour, fillColour, opacity) {
         fillColor: fillColour,
         fillOpacity: opacity,
         radius: parseFloat(radius),
-        weight: 1
+        weight: 0.5
     }).addTo(mymap);
 }
 
 function getColor(d) {
-    return d > 1000 ? '#800026' :
-           d > 500  ? '#BD0026' :
-           d > 200  ? '#E31A1C' :
-           d > 100  ? '#FC4E2A' :
-           d > 50   ? '#FD8D3C' :
-           d > 20   ? '#FEB24C' :
-           d > 10   ? '#FED976' :
-                      '#FFEDA0';
+    if (d > 0) {
+        return '#2ca25f';
+    } else {
+        return '#dd1c77';
+    }
 }
 
 function style(feature) {
@@ -96,7 +93,7 @@ function style(feature) {
         opacity: 1,
         color: 'black',
         dashArray: '3',
-        fillOpacity: 0.2
+        fillOpacity: 0.0
     };
 }
 
