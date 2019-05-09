@@ -6,6 +6,22 @@ body {
     color: #FFFFFF;
 }
 
+.judul {
+    font-family: 'Princess Sofia'; 
+    font-size: 300%;
+}
+
+.nomargin {
+    margin-top : 0px;
+    margin-bottom : 0px;
+    margin-left : 0px;
+    margin-right : 0px;
+}
+
+.bottompadding {
+    padding-bottom : 5px;
+}
+
 .column {
     float: left;
     width: 50%;
@@ -30,4 +46,18 @@ body {
     content: "";
     display: table;
     clear: both;
+}
+
+.garisputih {
+    background:white;
+    height: 10px;
+}
+
+.gariskuning {
+    background:#faeb1c;
+    height: 20px;
+}
+
+.bgbirumuda {
+    background: #057bab
 }
