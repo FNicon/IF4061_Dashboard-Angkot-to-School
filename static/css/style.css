@@ -25,6 +25,13 @@ body {
     margin-right : 0px;
 }
 
+.bottommargin {
+    margin-top : 0px;
+    margin-bottom : 5px;
+    margin-left : 0px;
+    margin-right : 0px;
+}
+
 .bottompadding {
     padding-bottom : 5px;
 }

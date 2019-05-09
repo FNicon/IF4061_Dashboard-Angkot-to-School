@@ -6,6 +6,7 @@ import json
 
 from flask import Flask
 from flask import render_template
+from flask import request
 
 from flaskr.db_query.query_angkot_sekolah import get_kebutuhan_per_km2
 from flaskr.db_query.query_angkot import get_trayek, get_angkot_total, get_angkot_per_kecamatan
@@ -16,6 +17,15 @@ from flaskr.log.log import error_log, info_log
 
 module_name = "app"
 app = Flask(__name__)
+
+@app.route("/sekolah", methods=['POST'])
+def sekolah():
+    print(request)
+    return '1'
+
+@app.route("/kapasitas", methods=['POST'])
+def kapasitas():
+    return request.form['kapasitas']
 
 @app.route("/")
 def index():

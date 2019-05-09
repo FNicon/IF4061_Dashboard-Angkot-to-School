@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Princess Sofia" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'/>
 
+    <!--<script type="text/javascript" src="../static/javascript/filter.js"></script>-->
 </head>
 <body>
     <div style="text-align: center;">
@@ -24,40 +25,42 @@
             Dengan demikian, jumlah kendaraan pribadi akan berkurang pada saat jam antar jemput sekolah.</p>
     <div class="row">
         <div class="column">
-            <div class="column1">
-                <!--<form action="" method="post">
-                    <p>Jumlah siswa/angkot</p>
-                        <input type="text" value="10">-->
+            <!--form action="" method="post">
+                <div class="column1">
+                    <p>Jumlah siswa/angkot
+                        <br>
+                        <input type="number" value="5" min="1" onkeyup="setKapasitas(this.value)">
+                    </p>-->
                     <!-- <p>Angkot</p>
                     {% for tryk in trayek["trayek"] %}
                         <input type="checkbox" name="trayek" value={{tryk}}> {{ tryk }}
                         <br>
                     {% endfor %} -->
-                <!--</form>-->
-            </div>
+            <!--</div>
             
-            <div class="column2">
-                <!--<form action="" method="post">
-                    <p>Sekolah</p>
-                        <input type="checkbox" name="sekolah" value="SD"> SD
-                        <input type="checkbox" name="sekolah" value="SMP"> SMP
-                        <input type="checkbox" name="sekolah" value="SMK"> SMK
-                        <input type="checkbox" name="sekolah" value="SMA"> SMA
-                        <input type="checkbox" name="sekolah" value="SLB"> SLB-->
+                <div class="column2">
+                    <p>Jenis Sekolah
+                    <br>
+                        <input type="checkbox" name="sekolah" value="SD" checked> SD
+                        <input type="checkbox" name="sekolah" value="SMP" checked> SMP
+                        <input type="checkbox" name="sekolah" value="SMK" checked> SMK
+                        <input type="checkbox" name="sekolah" value="SMA" checked> SMA
+                        <input type="checkbox" name="sekolah" value="SLB" checked> SLB
+                    </p>-->
                     <!-- <p>Kecamatan</p>
                     {% for kec in kecamatan["kecamatan"] %}
                         <input type="checkbox" name="kecamatan" value={{kec}}> {{ kec |capitalize }}
                         <br>
                     {% endfor %} -->
-                <!--</form>-->
-            </div>
+            <!--</div>
+            </form>-->
             <div id="mapid"></div>
             <p style="text-align: justify;">Dari hasil visualisasi dapat disimpulkan bahwa kota Bandung masih kekurangan jumlah angkot untuk menjalankan program "Angkot to School".
                     Dari 30 kecamatan, hanya 1 kecamatan yang jumlah angkotnya terpenuhi, yaitu Cinambo. Secara keseluruhan banyak angkot yang
                 terpenuhi yaitu sebanyak 
                 <script>
                     document.write(Math.round(
-                        ('{{ angkot_total }}' / '{{ siswa_total["total"]/10 }}') * 100
+                        ('{{ angkot_total }}') / (('{{ siswa_total["total"] }}') / 10) * 100
                     ));
                 </script>
                     %
