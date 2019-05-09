@@ -57,12 +57,12 @@ function drawChartKecamatan() {
     }
 
     var databar = google.visualization.arrayToDataTable([
-        ['Kecamatan', 'Total Angkot', 'Total Kebutuhan Angkot', {type: 'string', role: 'tooltip'}],
-        [data[0][0], parseInt(data[0][1]), parseInt(data[0][2]), parseInt(data[0][2]) + '\nKekurangan: ' + Math.round(parseInt(data[0][2])-parseInt(data[0][1])) + '\nTerpenuhi: ' + Math.round(parseInt(data[0][1])/parseInt(data[0][2])*100) + '%'],
-        [data[1][0], parseInt(data[1][1]), parseInt(data[1][2]), parseInt(data[1][2]) + '\nKekurangan: ' + Math.round(parseInt(data[1][2])-parseInt(data[1][1])) + '\nTerpenuhi: ' + Math.round(parseInt(data[1][1])/parseInt(data[1][2])*100) + '%'],
-        [data[2][0], parseInt(data[2][1]), parseInt(data[2][2]), parseInt(data[2][2]) + '\nKekurangan: ' + Math.round(parseInt(data[2][2])-parseInt(data[2][1])) + '\nTerpenuhi: ' + Math.round(parseInt(data[2][1])/parseInt(data[2][2])*100) + '%'],
-        [data[3][0], parseInt(data[3][1]), parseInt(data[3][2]), parseInt(data[3][2]) + '\nKekurangan: ' + Math.round(parseInt(data[3][2])-parseInt(data[3][1])) + '\nTerpenuhi: ' + Math.round(parseInt(data[3][1])/parseInt(data[3][2])*100) + '%'],
-        [data[4][0], parseInt(data[4][1]), parseInt(data[4][2]), parseInt(data[4][2]) + '\nKekurangan: ' + Math.round(parseInt(data[4][2])-parseInt(data[4][1])) + '\nTerpenuhi: ' + Math.round(parseInt(data[4][1])/parseInt(data[4][2])*100) + '%'],
+        ['Kecamatan', 'Kekurangan Angkot', 'Kebutuhan Angkot', {type: 'string', role: 'tooltip'}],
+        [data[0][0], Math.round(parseInt(data[0][2])-parseInt(data[0][1])), parseInt(data[0][2]), parseInt(data[0][2]) + '\nJumlah Angkot: ' + parseInt(data[0][1]) + '\nTerpenuhi: ' + Math.round(parseInt(data[0][1])/parseInt(data[0][2])*100) + '%'],
+        [data[1][0], Math.round(parseInt(data[1][2])-parseInt(data[1][1])), parseInt(data[1][2]), parseInt(data[1][2]) + '\nJumlah Angkot: ' + parseInt(data[1][1]) + '\nTerpenuhi: ' + Math.round(parseInt(data[1][1])/parseInt(data[1][2])*100) + '%'],
+        [data[2][0], Math.round(parseInt(data[2][2])-parseInt(data[2][1])), parseInt(data[2][2]), parseInt(data[2][2]) + '\nJumlah Angkot: ' + parseInt(data[2][1]) + '\nTerpenuhi: ' + Math.round(parseInt(data[2][1])/parseInt(data[2][2])*100) + '%'],
+        [data[3][0], Math.round(parseInt(data[3][2])-parseInt(data[3][1])), parseInt(data[3][2]), parseInt(data[3][2]) + '\nJumlah Angkot: ' + parseInt(data[3][1]) + '\nTerpenuhi: ' + Math.round(parseInt(data[3][1])/parseInt(data[3][2])*100) + '%'],
+        [data[4][0], Math.round(parseInt(data[4][2])-parseInt(data[4][1])), parseInt(data[4][2]), parseInt(data[4][2]) + '\nJumlah Angkot: ' + parseInt(data[4][1]) + '\nTerpenuhi: ' + Math.round(parseInt(data[4][1])/parseInt(data[4][2])*100) + '%'],
     ]);
 
     var optionsbar = {
@@ -71,7 +71,7 @@ function drawChartKecamatan() {
             color: '#FFFFFF',
             'fontSize': 13
         },
-        'colors': ['#28B67C','#E12F2F'],
+        'colors': ['#E12F2F','#d38b06'],
         backgroundColor: '#033649',
         'chartArea': {'width': '50%'},
         legend: {
@@ -80,7 +80,7 @@ function drawChartKecamatan() {
             }
         },
         'hAxis': {
-            'title': 'Total Angkot',
+            'title': 'Jumlah Angkot',
             'minValue': 0,
             gridlines: {
                 color: '#FFFFFF'
@@ -130,7 +130,7 @@ function drawChartTotalBubble() {
             color: '#FFFFFF',
             'fontSize': 13
         },
-        colors: ['#28B67C','#00A2FF','#E12F2F'],
+        colors: ['#28B67C','#00A2FF','#d38b06'],
         backgroundColor: '#033649',
         hAxis: {
             gridlines: {
