@@ -18,6 +18,7 @@ function setDataTotal(inputAngkot, inputSiswa) {
 google.charts.load('current', {packages: ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawChartKecamatan);
 google.charts.setOnLoadCallback(drawChartTotal);
+google.charts.setOnLoadCallback(drawChartTotalBubble);
 
 function drawChartKecamatan() {
     var data = [];
@@ -38,7 +39,7 @@ function drawChartKecamatan() {
         'title': '5 Kecamatan yang Paling Kekurangan Angkot',
         'chartArea': {'width': '50%'},
         'hAxis': {
-        'title': 'Banyak Angkot',
+            'title': 'Banyak Angkot',
             'minValue': 0
         },
         'vAxis': {
@@ -50,26 +51,40 @@ function drawChartKecamatan() {
     chartbar.draw(databar, optionsbar);
 }
 
-function drawChartTotal() {
-    var databar = google.visualization.arrayToDataTable([
-        ['Total', 'Total Angkot', 'Total Siswa', 'Total Kebutuhan Angkot'],
-        ['Total', parseInt(totalAngkot), parseInt(totalSiswa), parseInt(totalSiswa/10)]
+function drawChartTotalBubble() {
+    var data = google.visualization.arrayToDataTable([
+        ['ID', '', '', 'Region',     'Population'],
+        ['',    0,              0,      'Total Angkot', parseInt(totalAngkot)],
+        ['',    0,              0,      'Total Siswa', parseInt(totalSiswa)],
+        ['',    0,              0,      'Total Kebutuhan Angkot', parseInt(totalSiswa/10+1)],
     ]);
 
-    var optionsbar = {
-        'title': 'Perbandingan Total Angkot, Siswa dan Kebutuhan Angkot',
-        'chartArea': {'width': '50%'},
-        'hAxis': {
-        'title': 'Jumlah Angkot',
-            'minValue': 0
+    var options = {
+        title: 'Perbandingan Total Angkot, Siswa dan Kebutuhan Angkot',
+        hAxis: {
+            gridlines: {
+                color: 'transparent'
+            },
+            textStyle : {
+                color: 'transparent'
+            }
         },
-        'vAxis': {
-            'title': 'Total'
+        vAxis: {
+            gridlines: {
+                color: 'transparent'
+            },
+            textStyle : {
+                color: 'transparent'
+            }
+        },
+        sizeAxis: {
+            minSize: 15,
+            maxSize: 150
         }
     };
 
-    var chartbar = new google.visualization.BarChart(document.getElementById('total'));
-    chartbar.draw(databar, optionsbar);
+    var chart = new google.visualization.BubbleChart(document.getElementById('total_bubble'));
+    chart.draw(data, options);
 }
 
 var chartKecamatan = {
@@ -179,7 +194,7 @@ var chartKecamatan = {
         }
     ]
     };
-    
+
     window.onload=function(){
       zingchart.render({
         id:'chartKecamatan',
