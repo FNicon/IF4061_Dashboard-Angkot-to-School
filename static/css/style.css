@@ -2,6 +2,8 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin-left: 1em;
     margin-right: 1em;
+    background-color: #033649;
+    color: #FFFFFF;
 }
 
 .column {
