@@ -58,17 +58,18 @@ function drawChartKecamatan() {
 
     var databar = google.visualization.arrayToDataTable([
         ['Kecamatan', 'Total Angkot', 'Total Kebutuhan Angkot', {type: 'string', role: 'tooltip'}],
-        [data[0][0], parseInt(data[0][1]), parseInt(data[0][2]), parseInt(data[0][2]) + '\nTerpenuhi: ' + Math.round(parseInt(data[0][1])/parseInt(data[0][2])*100) + '%\n Kekurangan: ' + Math.round(parseInt(data[0][2])-parseInt(data[0][1]))],
-        [data[1][0], parseInt(data[1][1]), parseInt(data[1][2]), parseInt(data[1][2]) + '\nTerpenuhi: ' + Math.round(parseInt(data[1][1])/parseInt(data[1][2])*100) + '%\n Kekurangan: ' + Math.round(parseInt(data[1][2])-parseInt(data[1][1]))],
-        [data[2][0], parseInt(data[2][1]), parseInt(data[2][2]), parseInt(data[2][2]) + '\nTerpenuhi: ' + Math.round(parseInt(data[2][1])/parseInt(data[2][2])*100) + '%\n Kekurangan: ' + Math.round(parseInt(data[2][2])-parseInt(data[2][1]))],
-        [data[3][0], parseInt(data[3][1]), parseInt(data[3][2]), parseInt(data[3][2]) + '\nTerpenuhi: ' + Math.round(parseInt(data[3][1])/parseInt(data[3][2])*100) + '%\n Kekurangan: ' + Math.round(parseInt(data[3][2])-parseInt(data[3][1]))],
-        [data[4][0], parseInt(data[4][1]), parseInt(data[4][2]), parseInt(data[4][2]) + '\nTerpenuhi: ' + Math.round(parseInt(data[4][1])/parseInt(data[4][2])*100) + '%\n Kekurangan: ' + Math.round(parseInt(data[4][2])-parseInt(data[4][1]))],
+        [data[0][0], parseInt(data[0][1]), parseInt(data[0][2]), parseInt(data[0][2]) + '\nKekurangan: ' + Math.round(parseInt(data[0][2])-parseInt(data[0][1])) + '\nTerpenuhi: ' + Math.round(parseInt(data[0][1])/parseInt(data[0][2])*100) + '%'],
+        [data[1][0], parseInt(data[1][1]), parseInt(data[1][2]), parseInt(data[1][2]) + '\nKekurangan: ' + Math.round(parseInt(data[1][2])-parseInt(data[1][1])) + '\nTerpenuhi: ' + Math.round(parseInt(data[1][1])/parseInt(data[1][2])*100) + '%'],
+        [data[2][0], parseInt(data[2][1]), parseInt(data[2][2]), parseInt(data[2][2]) + '\nKekurangan: ' + Math.round(parseInt(data[2][2])-parseInt(data[2][1])) + '\nTerpenuhi: ' + Math.round(parseInt(data[2][1])/parseInt(data[2][2])*100) + '%'],
+        [data[3][0], parseInt(data[3][1]), parseInt(data[3][2]), parseInt(data[3][2]) + '\nKekurangan: ' + Math.round(parseInt(data[3][2])-parseInt(data[3][1])) + '\nTerpenuhi: ' + Math.round(parseInt(data[3][1])/parseInt(data[3][2])*100) + '%'],
+        [data[4][0], parseInt(data[4][1]), parseInt(data[4][2]), parseInt(data[4][2]) + '\nKekurangan: ' + Math.round(parseInt(data[4][2])-parseInt(data[4][1])) + '\nTerpenuhi: ' + Math.round(parseInt(data[4][1])/parseInt(data[4][2])*100) + '%'],
     ]);
 
     var optionsbar = {
         'title': '5 Kecamatan yang Paling Kekurangan Angkot',
         'titleTextStyle': {
-            color: '#FFFFFF'
+            color: '#FFFFFF',
+            'fontSize': 13
         },
         'colors': ['#28B67C','#E12F2F'],
         backgroundColor: '#033649',
@@ -124,7 +125,8 @@ function drawChartTotalBubble() {
     var options = {
         title: 'Perbandingan Total Angkot, Siswa dan Kebutuhan Angkot',
         'titleTextStyle': {
-            color: '#FFFFFF'
+            color: '#FFFFFF',
+            'fontSize': 13
         },
         colors: ['#28B67C','#00A2FF','#E12F2F'],
         backgroundColor: '#033649',
