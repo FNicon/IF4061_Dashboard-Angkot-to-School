@@ -67,6 +67,7 @@ function drawChartKecamatan() {
 
     var optionsbar = {
         'title': '5 Kecamatan yang Paling Kekurangan Angkot',
+        'colors': ['#28B67C','#E12F2F'],
         'chartArea': {'width': '50%'},
         'hAxis': {
             'title': 'Total Angkot',
@@ -91,6 +92,7 @@ function drawChartTotalBubble() {
 
     var options = {
         title: 'Perbandingan Total Angkot, Siswa dan Kebutuhan Angkot',
+        colors: ['#28B67C','#00A2FF','#E12F2F'],
         hAxis: {
             gridlines: {
                 color: 'transparent'
