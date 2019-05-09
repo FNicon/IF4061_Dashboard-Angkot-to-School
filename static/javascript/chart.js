@@ -89,7 +89,8 @@ function drawChartKecamatan() {
                 color: '#FFFFFF'
             },
             titleTextStyle: {
-                color: '#FFFFFF'
+                color: '#FFFFFF',
+                italic: false,
             }
         },
         'vAxis': {
@@ -98,10 +99,11 @@ function drawChartKecamatan() {
                 color: '#FFFFFF'
             },
             textStyle : {
-                color: '#FFFFFF'
+                color: '#FFFFFF',
             },
             titleTextStyle: {
-                color: '#FFFFFF'
+                color: '#FFFFFF',
+                italic: false,
               }
         },
         focusTarget: 'category',
