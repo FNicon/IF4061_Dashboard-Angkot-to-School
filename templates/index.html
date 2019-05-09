@@ -49,22 +49,25 @@
                 <!--</form>-->
             </div>
             <div id="mapid"></div>
+            <p>Dari hasil visualisasi dapat disimpulkan bahwa kota Bandung masih kekurangan jumlah angkot untuk menjalankan program "Angkot to School".
+                    Dari 30 kecamatan, hanya 1 kecamatan yang jumlah angkotnya terpenuhi, yaitu Cinambo. Secara keseluruhan banyak angkot yang
+                terpenuhi yaitu sebanyak 
+                <script>
+                    document.write(Math.round(
+                        ('{{ angkot_total }}' / '{{ siswa_total["total"]/10 }}') * 100
+                    ));
+                </script>
+                    %
+                </p>
+            <p>Sumber data:</p>
+            <p>data.bandung.go.id</p>
+            <p>dapo.dikdasmen.kemdikbud.go.id</p>
+            <p>transportasiumum.com</p>
         </div>
         <div class="column">
             <div class="row">
                 <div id="total_bubble"></div>
-                <p>
-                    Terpenuhi :
-                    <script>
-                        document.write(Math.round(
-                            ('{{ angkot_total }}' / '{{ siswa_total["total"]/10 }}') * 100
-                        ));
-                    </script>
-                    %
-                </p>
                 <div id="kecamatan"></div>
-                <p>Bagian ini berisi kesimpulan</p>
-                <p>Bagian ini berisi sumber data</p>
             </div>
         </div>
     </div>
