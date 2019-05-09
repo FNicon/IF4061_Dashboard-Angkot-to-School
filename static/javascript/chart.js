@@ -17,7 +17,6 @@ function setDataTotal(inputAngkot, inputSiswa) {
 
 google.charts.load('current', {packages: ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawChartKecamatan);
-google.charts.setOnLoadCallback(drawChartTotal);
 google.charts.setOnLoadCallback(drawChartTotalBubble);
 
 function drawChartKecamatan() {
