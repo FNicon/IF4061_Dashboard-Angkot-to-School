@@ -22,7 +22,7 @@ info.update = function (props) {
         + '<br /> Angkot ' + props.angkot
         + '<br /> Kebutuhan Angkot ' + props.kebutuhan
         + '<br /> Terpenuhi ' + Math.round(props.angkot / props.kebutuhan * 100) + '%'
-        : 'Hover diatas kecamatan</div>');
+        : 'Hover kecamatan untuk melihat lebih detail</div>');
 };
 info.addTo(mymap);
 
